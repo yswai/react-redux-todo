@@ -7,7 +7,7 @@ let AddTodo = ({ dispatch }) => {
 
   return (
     <div>
-      <form onSubmit={e => {
+      <form className="form" onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
@@ -15,12 +15,14 @@ let AddTodo = ({ dispatch }) => {
         dispatch(addTodo(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
-          input = node
-        }} />
-        <button type="submit">
-          Add Todo
-        </button>
+        <div className="form-inline">
+          <input className="form-control" ref={node => {
+            input = node
+          }} />
+          <button className="form-control" type="submit">
+            Add Todo
+          </button>
+        </div>
       </form>
     </div>
   )
